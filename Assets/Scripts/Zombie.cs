@@ -12,6 +12,8 @@ public class Zombie : MonoBehaviour
     [SerializeField] bool isFollowingPlayer;
     [SerializeField] Transform player;
 
+    static int numberOfZombiesInScene = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class Zombie : MonoBehaviour
         float scale = 1 / 3.1f;
         navMeshAgent.speed = scale;
         animator.speed = scale;
+
+        numberOfZombiesInScene++;
     }
 
     // Update is called once per frame
@@ -112,7 +116,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /* private void OnTriggerEnter(Collider other)
     {
         // Debug.Log("Collided with " + other.name);
 
@@ -125,5 +129,5 @@ public class Zombie : MonoBehaviour
             player = other.transform;
             isFollowingPlayer = true;
         }
-    }
+    } */
 }

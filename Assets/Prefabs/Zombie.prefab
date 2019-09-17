@@ -281,10 +281,11 @@ GameObject:
   - component: {fileID: 2059792651754029219}
   - component: {fileID: 4657399628884358924}
   - component: {fileID: 7657147685290386931}
-  - component: {fileID: 5603575612314923191}
   - component: {fileID: 4889921541344633621}
   - component: {fileID: -3638486485017918347}
   - component: {fileID: 110036971652197838}
+  - component: {fileID: 1070568363704167149}
+  - component: {fileID: 4302666218404470696}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -365,20 +366,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5603575612314923191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2400685508001938700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d891a033d7827640b4e668355814433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 7657147685290386931}
-  animator: {fileID: 4657399628884358924}
 --- !u!208 &4889921541344633621
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -424,6 +411,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1070568363704167149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400685508001938700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63429e4e8d80884aa0dda69815bfa30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isFollowing: 0
+--- !u!114 &4302666218404470696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400685508001938700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d00b19a7d0b1ea43888bde19baabebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followScript: {fileID: 0}
+  isFollowing: 0
 --- !u!1 &2691735419308031075
 GameObject:
   m_ObjectHideFlags: 0

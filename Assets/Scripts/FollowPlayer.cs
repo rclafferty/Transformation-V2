@@ -14,6 +14,11 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         nma = GetComponent<NavMeshAgent>();
+
+        if (player == null)
+        {
+            player = GameObject.Find("FPSController").transform;
+        }
     }
 
     // Update is called once per frame
@@ -21,13 +26,9 @@ public class FollowPlayer : MonoBehaviour
     {
         if (isFollowing)
         {
-            nma.SetDestination(player.position);
-
-            if (Vector3.Distance(transform.position, player.position) > 10.0f)
-            {
-                isFollowing = false;
-                nma.isStopped = true;
-            }
+            Vector3 position = player.position;
+            Debug.Log(position);
+            nma.SetDestination(position);
         }
     }
 
@@ -40,6 +41,15 @@ public class FollowPlayer : MonoBehaviour
         {
             Debug.Log("Following");
             isFollowing = true;
+            nma.isStopped = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (name.Contains("Zombie") && Input.GetMouseButtonDown(0))
+        {
+            Destroy(gameObject);
         }
     }
 }

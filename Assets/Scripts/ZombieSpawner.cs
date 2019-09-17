@@ -10,21 +10,22 @@ public class ZombieSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
+            // StartCoroutine(SpawnZombies(20, xMaxBound:200, yMaxBound:200));
             StartCoroutine(SpawnZombies());
     }
 
-    IEnumerator SpawnZombies(float delay = 0.5f)
+    IEnumerator SpawnZombies(int numZombies = 5, float delay = 0.5f, float xMinBound = 6.0f, float xMaxBound = 20.0f, float yMinBound = 6.0f, float yMaxBound = 20.0f)
     {
         float thisX = 0.0f;
         float thisZ = 0.0f;
 
         NavMeshAgent nma;
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < numZombies; i++)
         {
-            thisX = Random.Range(6, 20);
-            thisZ = Random.Range(6, 20);
+            thisX = Random.Range(xMinBound, xMaxBound);
+            thisZ = Random.Range(yMinBound, yMaxBound);
 
             GameObject g = Instantiate(zombiePrefab, new Vector3(thisX, 0, thisZ), Quaternion.identity);
             nma = g.GetComponent<NavMeshAgent>();
@@ -35,9 +36,6 @@ public class ZombieSpawner : MonoBehaviour
                 i--;
                 continue;
             }
-
-
-            g.GetComponent<Zombie>().SetRandomDestination();
 
             yield return new WaitForSeconds(delay);
         }
